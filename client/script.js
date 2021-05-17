@@ -1,6 +1,6 @@
 console.log("Script Loaded!");
 
-fetch("/api/v1/getuser/codeSwastik")
+fetch("/api/v1/getuser/swastikjsdev")
   .then(res => res.json())
   .then(data => {
     if (data.name && data.screen_name) {
