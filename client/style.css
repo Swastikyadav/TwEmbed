@@ -64,8 +64,44 @@ a {
 }
 
 .main {
-  height: 200px;
+  display: flex;
+}
+
+.main .notice-badge {
+  font-size: 18px;
+  background: lightblue;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.profileCard {
+  width: 600px;
+  height: 400px;
   border: 1px solid black;
+  margin: 0 auto;
+}
+
+.embedCode {
+  font-size: 15px;
+}
+
+.embedInfo {
+  text-align: center;
+  font-size: 22px;
+  margin: 08rem;
+}
+
+.main pre {
+  padding: 25px;
+  margin: 0 auto;
+  font-size: 18px;
+  background: #000;
+  display: none;
+  overflow-x: scroll;
+}
+
+.snippet {
+  color: #fff;
 }
 
 footer {
@@ -81,6 +117,28 @@ footer p {
   font-size: 15px;
 }
 
+
+/* Media query for profile twitter profile card */
+@media all and (max-width: 768px) {
+  .profileCard {
+    width: 400px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .profileCard {
+    width: 320px;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .profileCard {
+    width: 100%;
+  }
+}
+
+
+/* Media query for html font size */
 @media all and (max-width: 809px) {
   html {
     font-size: 50%;

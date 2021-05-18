@@ -24,11 +24,17 @@
           your Twitter profile in your personal websites.
         </p>
         
-        <input class="t-handle-input" placeholder="Enter your Twitter Handle" />
-        <input class="t-handle-input submit-btn" type="submit" value="Embed" />
+        <form onsubmit="fetchProfile(event);">
+          <input class="t-handle-input t-username-input" placeholder="Enter your Twitter Handle" required />
+          <input class="t-handle-input submit-btn" type="submit" value="Embed" />
+        </form>
       </section>
       
-      <main class="main"></main>
+      <main class="main">
+        <p class="notice-badge">ℹ️ Once you submit your Twitter handle. Your Twitter profile card and embed code will appear here.</p>
+
+        <pre><code class="snippet language-html"></code></pre>
+      </main>
       
       <footer>
         <div>
