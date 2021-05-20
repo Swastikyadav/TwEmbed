@@ -40,7 +40,8 @@ async function getUser(req, res, next) {
     followers_count,
     friends_count,
     profile_image_url_https,
-    profile_banner_url
+    profile_banner_url,
+    url
   } = response.body;
   
   res.json({
@@ -51,7 +52,8 @@ async function getUser(req, res, next) {
     followers_count,
     friends_count,
     profile_image_url_https,
-    profile_banner_url
+    profile_banner_url,
+    url
   });
 }
 
