@@ -6,7 +6,7 @@ function fetchProfile() {
   const parentElement = embedScript.parentElement;
 
   // Fetch Profile
-  fetch(`/api/v1/getuser/${twitterHandle}`)
+  fetch(`https://embed-twitter-profile.herokuapp.com/api/v1/getuser/${twitterHandle}`)
   .then(res => res.json())
   .then(data => {
     if (data.name && data.screen_name) {
