@@ -1,3 +1,4 @@
+// Fetch profile data
 function fetchProfile(event) {
   event.preventDefault();
 
@@ -26,8 +27,11 @@ Error: ${error.message}`);
   });
 }
 
+
+
+// create elements and append to right documents.
 function showProfile(userProfile) {
-  // Display none notice-badge
+  // Set display none for notice-badge
   const noticeBadge = document.querySelector(".notice-badge");
   noticeBadge.style.display = "none";
 
@@ -47,33 +51,58 @@ function showProfile(userProfile) {
   `;
   
   // profile card section
-  const profileCard = document.createElement("section");
-  profileCard.className = "profileCard";
+  const profileCard = createElement({
+    type: "section",
+    props: {class: "profileCard"}
+  });
 
-  const imageContainer = document.createElement("div");
-  imageContainer.className = "img-container";
-  imageContainer.style.backgroundColor = "skyblue";
-  imageContainer.style.backgroundImage = `url(${userProfile.profile_banner_url})`;
+  const imageContainer = createElement({
+    type: "div",
+    props: {
+      class: "img-container"
+    },
+    styles: `background-color: skyblue; background-image: url(${userProfile.profile_banner_url})`,
+  });
 
-  const profileImage = document.createElement("img");
-  profileImage.className = "profile-img";
-  profileImage.setAttribute("src", changeProfileImgUrl(userProfile.profile_image_url_https));
+  const profileImage = createElement({
+    type: "img",
+    props: {
+      class: "profile-img",
+      src: changeProfileImgUrl(userProfile.profile_image_url_https),
+    },
+  });
 
-  const profileName = document.createElement("div");
-  profileName.className = "profile-name";
-  profileName.innerHTML = `<p class="name">${userProfile.name}</p><p class="twitter-handle">@${userProfile.screen_name}</p>`;
+  const profileName = createElement({
+    type: "div",
+    props: {
+      class: "profile-name",
+    },
+    content: `<p class="name">${userProfile.name}</p><p class="twitter-handle">@${userProfile.screen_name}</p>`
+  });
 
-  const profileBio = document.createElement("p");
-  profileBio.className = "profile-bio";
-  profileBio.innerHTML = setDescLinks(userProfile.description);
+  const profileBio = createElement({
+    type: "p",
+    props: {
+      class: "profile-bio"
+    },
+    content: setDescLinks(userProfile.description),
+  });
 
-  const locationAndUrl = document.createElement("p");
-  locationAndUrl.className = "location-and-url";
-  locationAndUrl.innerHTML = `<span class="location">📍 ${userProfile.location}</span> <span class="url">🔗 <a href="${userProfile.url}" target="_blank">${userProfile.url}</a></span>`;
+  const locationAndUrl = createElement({
+    type: "p",
+    props: {
+      class: "location-and-url",
+    },
+    content: `<span class="location">📍 ${userProfile.location}</span> <span class="url">🔗 <a href="${userProfile.url}" target="_blank">${userProfile.url}</a></span>`,
+  });
 
-  const followCount = document.createElement("p");
-  followCount.className = "follow-count";
-  followCount.innerHTML = `<span class="following"><span class="count">${userProfile.friends_count}</span> Following</span> <span class="followers"><span class="count">${userProfile.followers_count}</span> Followers</span>`;
+  const followCount = createElement({
+    type: "p",
+    props: {
+      class: "follow-count",
+    },
+    content: `<span class="following"><span class="count">${userProfile.friends_count}</span> Following</span> <span class="followers"><span class="count">${userProfile.followers_count}</span> Followers</span>`,
+  });
 
   imageContainer.appendChild(profileImage);
   profileCard.appendChild(imageContainer);
@@ -83,9 +112,13 @@ function showProfile(userProfile) {
   profileCard.appendChild(followCount);
 
   // Embed info
-  const embedInfo = document.createElement("p");
-  embedInfo.className="embedInfo"
-  embedInfo.innerHTML = "Add the following script tag in your HTML where you want to embed your profile.";
+  const embedInfo = createElement({
+    type: "p",
+    props: {
+      class: "embedInfo"
+    },
+    content: "Add the following script tag in your HTML where you want to embed your profile.",
+  });
 
   // Append profileCard and embedCode sections in mainElement.
   // mainElement.removeChild(mainElement.firstElementChild);
@@ -98,6 +131,7 @@ function showProfile(userProfile) {
   snippet.innerHTML = `&lt;script class="profile-embed" src="https://someurl.com" data-username="${userProfile.screen_name}"&gt;&lt;/script&gt;`
 }
 
+// Change profile image url to a higher dimesion url.
 function changeProfileImgUrl(url) {
   const reversedUrl = url.split("").reverse().join("");
   const reversedNewUrl = reversedUrl.replace("lamron", "004x004");
@@ -106,6 +140,7 @@ function changeProfileImgUrl(url) {
   return newUrl;
 }
 
+// Make links in description clickable in profile bio.
 function setDescLinks(description) {
   const descArr = description.split(" ");
   const updatedDescArr = descArr.map(word => {
@@ -117,4 +152,16 @@ function setDescLinks(description) {
   });
 
   return updatedDescArr.join(" ");
+}
+
+// Create element function.
+function createElement({type, props, styles, content}) {
+  const element = document.createElement(type);
+  for(let key in props) {
+    element.setAttribute(key, props[key]);
+  }
+  element.innerHTML = content || "";
+  element.style.cssText = styles;
+
+  return element;
 }
