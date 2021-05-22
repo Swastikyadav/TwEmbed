@@ -48,7 +48,7 @@ async function getUser(req, res, next) {
     profile_banner_url,
     url
   } = response.body;
-  console.log(response.header);
+  
   res.json({
     name,
     screen_name,

@@ -34,11 +34,6 @@ function showProfile(userProfile, main) {
     styles: `
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      text-decoration: none;
-      line-height: 1.5;
-      font-family: sans-serif;
-
       width: 600px;
       border: 1px solid black;
       margin: 0 auto;
@@ -52,12 +47,6 @@ function showProfile(userProfile, main) {
       class: "img_container",
     },
     styles: `
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      text-decoration: none;
-      line-height: 1.5;
-
       background-color: skyblue;
       background-image: url(${userProfile.profile_banner_url});
 
@@ -79,12 +68,6 @@ function showProfile(userProfile, main) {
       src: changeProfileImgUrl(userProfile.profile_image_url_https),
     },
     styles: `
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      text-decoration: none;
-      line-height: 1.5;
-
       width: 100px;
       height: 100px;
       position: absolute;
@@ -101,26 +84,10 @@ function showProfile(userProfile, main) {
     props: {
       class: "profile_name",
     },
-    styles: `
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      text-decoration: none;
-      line-height: 1.5;
-
-      padding: 10px;
-    `,
-    content: `<p style="margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    line-height: 1.5; font-size: 18px; position: relative; top: 40px;">${userProfile.name}</p>
+    styles: "padding: 10px",
+    content: `<p style="font-size: 18px; position: relative; top: 40px; color: black">${userProfile.name}</p>
     
-    <p style="margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    line-height: 1.5; font-size: 15px; color: rgb(90, 90, 90); position: relative; top: 40px;">@${userProfile.screen_name}</p>`
+    <p style="font-size: 15px; color: rgb(90, 90, 90); position: relative; top: 20px;">@${userProfile.screen_name}</p>`
   });
 
   const profileBio = createElement({
@@ -130,14 +97,7 @@ function showProfile(userProfile, main) {
     },
     styles: `
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      text-decoration: none;
-      line-height: 1.5;
-
       padding: 10px;
-      position: relative;
-      top: 35px;
       font-size: 15px;
     `,
     content: setDescLinks(userProfile.description),
@@ -150,26 +110,13 @@ function showProfile(userProfile, main) {
     },
     styles: `
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      text-decoration: none;
-      line-height: 1.5;
-
       font-size: 15px;
       color: rgb(90, 90, 90);
-      padding: 40px 10px 10px 10px;
+      padding: 10px;
     `,
-    content: `<span style="margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    line-height: 1.5; display: inline-block;">📍 ${userProfile.location}</span> 
+    content: `<span style="display: inline-block;">📍 ${userProfile.location}</span> 
     
-    <span style="margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    line-height: 1.5; display: inline-block;">🔗 <a href="${userProfile.url}" target="_blank">${userProfile.url}</a></span>`,
+    <span style="display: inline-block;">🔗 <a href="${userProfile.url}" target="_blank">${userProfile.url}</a></span>`,
   });
 
   const followCount = createElement({
@@ -179,27 +126,14 @@ function showProfile(userProfile, main) {
     },
     styles: `
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      text-decoration: none;
-      line-height: 1.5;
-
       font-size: 15px;
       color: rgb(90, 90, 90);
       padding: 10px;
     `,
     content: `
-    <span style="margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    line-height: 1.5; display: inline-block; padding-right: 8px;"><span style="font-weight: bold; color: black; padding-right: 2px;">${userProfile.friends_count}</span> Following</span>
+    <span style="display: inline-block; padding-right: 8px;"><span style="font-weight: bold; color: black; padding-right: 2px;">${userProfile.friends_count}</span> Following</span>
 
-    <span style="margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    line-height: 1.5; display: inline-block; padding-right: 8px;"><span style="font-weight: bold; color: black; padding-right: 2px;">${userProfile.followers_count}</span> Followers</span>
+    <span style="display: inline-block; padding-right: 8px;"><span style="font-weight: bold; color: black; padding-right: 2px;">${userProfile.followers_count}</span> Followers</span>
     `,
   });
 
@@ -214,18 +148,17 @@ function showProfile(userProfile, main) {
   const body = document.body;
   body.appendChild(profileCard);
 
-
+  profileCard.style.fontFamily = "sans-serif";
+  document.querySelectorAll(".profile_card *").forEach(child => {
+    child.style.textDecoration = "none";
+    child.style.lineHeight = "1.5";
+    child.style.boxSizing = "border-box";
+  })
   
   // Media Query function
   function screenSize768(x) {
     if (x.matches) { // If media query matches
       profileCard.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         font-family: sans-serif;
         width: 480px;
         border: 1px solid black;
@@ -234,12 +167,6 @@ function showProfile(userProfile, main) {
       `;
     
       imageContainer.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -252,12 +179,6 @@ function showProfile(userProfile, main) {
       `;
     
       profileImage.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         width: 100px;
         height: 100px;
         position: absolute;
@@ -269,12 +190,6 @@ function showProfile(userProfile, main) {
       `;
     } else {
       profileCard.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         font-family: sans-serif;
         width: 600px;
         border: 1px solid black;
@@ -283,12 +198,6 @@ function showProfile(userProfile, main) {
       `;
     
       imageContainer.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -301,12 +210,6 @@ function showProfile(userProfile, main) {
       `;
     
       profileImage.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         width: 100px;
         height: 100px;
         position: absolute;
@@ -326,12 +229,6 @@ function showProfile(userProfile, main) {
   function screenSize570(y) {
     if (y.matches) { // If media query matches
       profileCard.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         font-family: sans-serif;
         width: 320px;
         border: 1px solid black;
@@ -340,12 +237,6 @@ function showProfile(userProfile, main) {
       `;
     
       imageContainer.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -358,12 +249,6 @@ function showProfile(userProfile, main) {
       `;
     
       profileImage.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         width: 80px;
         height: 80px;
         position: absolute;
@@ -385,12 +270,6 @@ function showProfile(userProfile, main) {
   function screenSize420(z) {
     if (z.matches) { // If media query matches
       profileCard.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         font-family: sans-serif;
         width: 90%;
         border: 1px solid black;
@@ -399,12 +278,6 @@ function showProfile(userProfile, main) {
       `;
     
       imageContainer.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -417,12 +290,6 @@ function showProfile(userProfile, main) {
       `;
     
       profileImage.style.cssText = `
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-        line-height: 1.5;
-
         width: 70px;
         height: 70px;
         position: absolute;
