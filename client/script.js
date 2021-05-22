@@ -128,7 +128,7 @@ function showProfile(userProfile) {
   // Add widget script code snippet
   const snippet = document.querySelector(".snippet");
   snippet.parentElement.style.display = "block";
-  snippet.innerHTML = `&lt;script class="profile-embed" src="https://someurl.com" data-username="${userProfile.screen_name}"&gt;&lt;/script&gt;`
+  snippet.innerHTML = `&lt;script class="profile-embed" src="https://cdn.jsdelivr.net/gh/Swastikyadav/embeddable-twitter-profile@master/client/widget.js" data-username="${userProfile.screen_name}"&gt;&lt;/script&gt;`
 }
 
 // Change profile image url to a higher dimesion url.
