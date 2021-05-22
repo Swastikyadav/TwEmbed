@@ -13,6 +13,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.resolve(__dirname, "../client")));
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.use("/api/v1/getuser/:userhandle", (req, res, next) => {
   try {
     getUser(req, res, next);
@@ -43,7 +48,7 @@ async function getUser(req, res, next) {
     profile_banner_url,
     url
   } = response.body;
-  
+  console.log(response.header);
   res.json({
     name,
     screen_name,
