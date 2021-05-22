@@ -23,7 +23,14 @@ Error: ${error.message}`);
   })
 }
 
-
+const defaultStyles = `
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-decoration: none;
+  line-height: 1.5;
+`;
 
 // create elements and append to right documents.
 function showProfile(userProfile, main) {
@@ -147,14 +154,14 @@ function showProfile(userProfile, main) {
   // Media Query function
   function screenSize768(x) {
     if (x.matches) { // If media query matches
-      profileCard.style.cssText = `
+      profileCard.style.cssText = defaultStyles + `
         width: 480px;
         border: 1px solid black;
         margin: 0 auto;
         background: #fff;
       `;
     
-      imageContainer.style.cssText = `
+      imageContainer.style.cssText = defaultStyles +  `
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -166,7 +173,7 @@ function showProfile(userProfile, main) {
         position: relative;
       `;
     
-      profileImage.style.cssText = `
+      profileImage.style.cssText = defaultStyles +  `
         width: 100px;
         height: 100px;
         position: absolute;
@@ -177,14 +184,14 @@ function showProfile(userProfile, main) {
         border: 4px solid #fff;
       `;
     } else {
-      profileCard.style.cssText = `
+      profileCard.style.cssText = defaultStyles +  `
         width: 600px;
         border: 1px solid black;
         margin: 0 auto;
         background: #fff;
       `;
     
-      imageContainer.style.cssText = `
+      imageContainer.style.cssText = defaultStyles +  `
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -196,7 +203,7 @@ function showProfile(userProfile, main) {
         position: relative;
       `;
     
-      profileImage.style.cssText = `
+      profileImage.style.cssText = defaultStyles +  `
         width: 100px;
         height: 100px;
         position: absolute;
@@ -215,14 +222,14 @@ function showProfile(userProfile, main) {
   // Below 570px
   function screenSize570(y) {
     if (y.matches) { // If media query matches
-      profileCard.style.cssText = `
+      profileCard.style.cssText = defaultStyles +  `
         width: 320px;
         border: 1px solid black;
         margin: 0 auto;
         background: #fff;
       `;
     
-      imageContainer.style.cssText = `
+      imageContainer.style.cssText = defaultStyles +  `
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -234,7 +241,7 @@ function showProfile(userProfile, main) {
         position: relative;
       `;
     
-      profileImage.style.cssText = `
+      profileImage.style.cssText = defaultStyles +  `
         width: 80px;
         height: 80px;
         position: absolute;
@@ -255,14 +262,14 @@ function showProfile(userProfile, main) {
   // Below 420px
   function screenSize420(z) {
     if (z.matches) { // If media query matches
-      profileCard.style.cssText = `
+      profileCard.style.cssText = defaultStyles +  `
         width: 90%;
         border: 1px solid black;
         margin: 0 auto;
         background: #fff;
       `;
     
-      imageContainer.style.cssText = `
+      imageContainer.style.cssText = defaultStyles +  `
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -274,7 +281,7 @@ function showProfile(userProfile, main) {
         position: relative;
       `;
     
-      profileImage.style.cssText = `
+      profileImage.style.cssText = defaultStyles +  `
         width: 70px;
         height: 70px;
         position: absolute;
@@ -323,7 +330,7 @@ function createElement({type, props, styles, content}) {
     element.setAttribute(key, props[key]);
   }
   element.innerHTML = content || "";
-  element.style.cssText = styles;
+  element.style.cssText = defaultStyles + styles;
 
   return element;
 }
