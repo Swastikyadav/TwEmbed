@@ -23,15 +23,6 @@ Error: ${error.message}`);
   })
 }
 
-const defaultStyles = `
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  text-decoration: none;
-  line-height: 1.5;
-`;
-
 // create elements and append to right documents.
 function showProfile(userProfile, main) {
   // profile card section
@@ -41,6 +32,13 @@ function showProfile(userProfile, main) {
       class: "profile_card",
     },
     styles: `
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      line-height: 1.5;
+      font-family: sans-serif;
+
       width: 600px;
       border: 1px solid black;
       margin: 0 auto;
@@ -54,6 +52,12 @@ function showProfile(userProfile, main) {
       class: "img_container",
     },
     styles: `
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      line-height: 1.5;
+
       background-color: skyblue;
       background-image: url(${userProfile.profile_banner_url});
 
@@ -75,6 +79,12 @@ function showProfile(userProfile, main) {
       src: changeProfileImgUrl(userProfile.profile_image_url_https),
     },
     styles: `
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      line-height: 1.5;
+
       width: 100px;
       height: 100px;
       position: absolute;
@@ -91,8 +101,26 @@ function showProfile(userProfile, main) {
     props: {
       class: "profile_name",
     },
-    styles: "padding: 10px;",
-    content: `<p style="font-size: 18px; position: relative; top: 40px;">${userProfile.name}</p><p style="font-size: 15px; color: rgb(90, 90, 90); position: relative; top: 40px;">@${userProfile.screen_name}</p>`
+    styles: `
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      line-height: 1.5;
+
+      padding: 10px;
+    `,
+    content: `<p style="margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 1.5; font-size: 18px; position: relative; top: 40px;">${userProfile.name}</p>
+    
+    <p style="margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 1.5; font-size: 15px; color: rgb(90, 90, 90); position: relative; top: 40px;">@${userProfile.screen_name}</p>`
   });
 
   const profileBio = createElement({
@@ -101,6 +129,12 @@ function showProfile(userProfile, main) {
       class: "profile_bio",
     },
     styles: `
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      line-height: 1.5;
+
       padding: 10px;
       position: relative;
       top: 35px;
@@ -115,11 +149,27 @@ function showProfile(userProfile, main) {
       class: "location_and_url",
     },
     styles: `
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      line-height: 1.5;
+
       font-size: 15px;
       color: rgb(90, 90, 90);
       padding: 40px 10px 10px 10px;
     `,
-    content: `<span style="display: inline-block;">📍 ${userProfile.location}</span> <span style="display: inline-block;">🔗 <a href="${userProfile.url}" target="_blank">${userProfile.url}</a></span>`,
+    content: `<span style="margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 1.5; display: inline-block;">📍 ${userProfile.location}</span> 
+    
+    <span style="margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 1.5; display: inline-block;">🔗 <a href="${userProfile.url}" target="_blank">${userProfile.url}</a></span>`,
   });
 
   const followCount = createElement({
@@ -128,13 +178,28 @@ function showProfile(userProfile, main) {
       class: "follow_count",
     },
     styles: `
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      line-height: 1.5;
+
       font-size: 15px;
       color: rgb(90, 90, 90);
       padding: 10px;
     `,
     content: `
-    <span style="display: inline-block; padding-right: 8px;"><span style="font-weight: bold; color: black; padding-right: 2px;">${userProfile.friends_count}</span> Following</span>
-    <span style="display: inline-block; padding-right: 8px;"><span style="font-weight: bold; color: black; padding-right: 2px;">${userProfile.followers_count}</span> Followers</span>
+    <span style="margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 1.5; display: inline-block; padding-right: 8px;"><span style="font-weight: bold; color: black; padding-right: 2px;">${userProfile.friends_count}</span> Following</span>
+
+    <span style="margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 1.5; display: inline-block; padding-right: 8px;"><span style="font-weight: bold; color: black; padding-right: 2px;">${userProfile.followers_count}</span> Followers</span>
     `,
   });
 
@@ -154,14 +219,27 @@ function showProfile(userProfile, main) {
   // Media Query function
   function screenSize768(x) {
     if (x.matches) { // If media query matches
-      profileCard.style.cssText = defaultStyles + `
+      profileCard.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
+        font-family: sans-serif;
         width: 480px;
         border: 1px solid black;
         margin: 0 auto;
         background: #fff;
       `;
     
-      imageContainer.style.cssText = defaultStyles +  `
+      imageContainer.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -173,7 +251,13 @@ function showProfile(userProfile, main) {
         position: relative;
       `;
     
-      profileImage.style.cssText = defaultStyles +  `
+      profileImage.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
         width: 100px;
         height: 100px;
         position: absolute;
@@ -184,14 +268,27 @@ function showProfile(userProfile, main) {
         border: 4px solid #fff;
       `;
     } else {
-      profileCard.style.cssText = defaultStyles +  `
+      profileCard.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
+        font-family: sans-serif;
         width: 600px;
         border: 1px solid black;
         margin: 0 auto;
         background: #fff;
       `;
     
-      imageContainer.style.cssText = defaultStyles +  `
+      imageContainer.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -203,7 +300,13 @@ function showProfile(userProfile, main) {
         position: relative;
       `;
     
-      profileImage.style.cssText = defaultStyles +  `
+      profileImage.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
         width: 100px;
         height: 100px;
         position: absolute;
@@ -222,14 +325,27 @@ function showProfile(userProfile, main) {
   // Below 570px
   function screenSize570(y) {
     if (y.matches) { // If media query matches
-      profileCard.style.cssText = defaultStyles +  `
+      profileCard.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
+        font-family: sans-serif;
         width: 320px;
         border: 1px solid black;
         margin: 0 auto;
         background: #fff;
       `;
     
-      imageContainer.style.cssText = defaultStyles +  `
+      imageContainer.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -241,7 +357,13 @@ function showProfile(userProfile, main) {
         position: relative;
       `;
     
-      profileImage.style.cssText = defaultStyles +  `
+      profileImage.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
         width: 80px;
         height: 80px;
         position: absolute;
@@ -262,14 +384,27 @@ function showProfile(userProfile, main) {
   // Below 420px
   function screenSize420(z) {
     if (z.matches) { // If media query matches
-      profileCard.style.cssText = defaultStyles +  `
+      profileCard.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
+        font-family: sans-serif;
         width: 90%;
         border: 1px solid black;
         margin: 0 auto;
         background: #fff;
       `;
     
-      imageContainer.style.cssText = defaultStyles +  `
+      imageContainer.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
         background-color: skyblue;
         background-image: url(${userProfile.profile_banner_url});
 
@@ -281,7 +416,13 @@ function showProfile(userProfile, main) {
         position: relative;
       `;
     
-      profileImage.style.cssText = defaultStyles +  `
+      profileImage.style.cssText = `
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        line-height: 1.5;
+
         width: 70px;
         height: 70px;
         position: absolute;
@@ -330,7 +471,7 @@ function createElement({type, props, styles, content}) {
     element.setAttribute(key, props[key]);
   }
   element.innerHTML = content || "";
-  element.style.cssText = defaultStyles + styles;
+  element.style.cssText = styles;
 
   return element;
 }
