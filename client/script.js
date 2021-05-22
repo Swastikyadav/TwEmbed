@@ -128,7 +128,7 @@ function showProfile(userProfile) {
   // Add widget script code snippet
   const snippet = document.querySelector(".snippet");
   snippet.parentElement.style.display = "block";
-  snippet.innerHTML = `&lt;div id="embed-div"&gt;&lt/div&gt<br />&lt;script id="embed-script" src="https://cdn.jsdelivr.net/gh/Swastikyadav/embeddable-twitter-profile@master/client/widget-v2/index.js" data-user="${userProfile.screen_name}"&gt;&lt;/script&gt;`
+  snippet.innerHTML = `&lt;div id="embed-div"&gt;&lt/div&gt<br />&lt;script id="embed-script" src="https://cdn.jsdelivr.net/gh/Swastikyadav/embeddable-twitter-profile@master/client/widget-v3/index.js" data-user="${userProfile.screen_name}"&gt;&lt;/script&gt;`
 }
 
 // Change profile image url to a higher dimesion url.
