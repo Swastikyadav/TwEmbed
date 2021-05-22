@@ -1,0 +1,14 @@
+/* Footer Styles */
+
+footer {
+  border-top: 1px solid black;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  margin-top: 08rem;
+}
+
+footer p {
+  font-size: 15px;
+}

@@ -1,0 +1,80 @@
+/* Profile Card Styles */
+
+.profileCard {
+  width: 600px;
+  border: 1px solid black;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.img-container {
+  height: 200px;
+  border-bottom: 1px solid black;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-image: skyblue;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 10px;
+  top: 150px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 4px solid #fff;
+}
+
+.profileCard .profile-name {
+  padding: 10px;
+}
+
+.profileCard .profile-name p {
+  font-size: 18px;
+  position: relative;
+  top: 40px;
+}
+
+.profileCard .profile-name .twitter-handle {
+  font-size: 15px;
+  color: rgb(90, 90, 90);
+}
+
+.profileCard .profile-bio {
+  padding: 10px;
+  position: relative;
+  top: 35px;
+  font-size: 15px;
+}
+
+.profileCard .location-and-url {
+  font-size: 15px;
+  color: rgb(90, 90, 90);
+  padding: 40px 10px 10px 10px;
+}
+
+.profileCard .follow-count {
+  font-size: 15px;
+  color: rgb(90, 90, 90);
+  padding: 10px;
+}
+
+.count {
+  font-weight: bold;
+  color: black;
+  padding-right: 2px;
+}
+
+.following,
+.followers {
+  display: inline-block;
+  padding-right: 8px;
+}
+
+.location,
+.url {
+  display: inline-block;
+}

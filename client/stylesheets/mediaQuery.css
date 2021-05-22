@@ -1,0 +1,67 @@
+/* Media query for profile twitter profile card */
+
+@media all and (max-width: 768px) {
+  .profileCard {
+    width: 480px;
+  }
+
+  .img-container {
+    height: 160px;
+  }
+
+  .profile-img {
+    top: 110px;
+  }
+}
+
+@media all and (max-width: 570px) {
+  .profileCard {
+    width: 320px;
+  }
+
+  .profile-img {
+    width: 80px;
+    height: 80px;
+    top: 70px;
+  }
+
+  .img-container {
+    height: 107px;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .profileCard {
+    width: 100%;
+  }
+
+  .img-container {
+    height: 60px;
+  }
+
+  .profile-img {
+    width: 70px;
+    height: 70px;
+    top: 35px;
+  }
+}
+
+
+/* Media query for html font size */
+@media all and (max-width: 809px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media all and (max-width: 650px) {
+  html {
+    font-size: 25%;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .wrapper {
+    margin: 0 2rem;
+  }
+}

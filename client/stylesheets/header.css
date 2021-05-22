@@ -1,0 +1,60 @@
+/* Header / Hero styles */
+
+.header {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 08rem;
+}
+
+.header h1 {
+  color: hotpink;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+p {
+  font-size: 4rem;
+  line-height: 1.5;
+}
+
+small {
+  font-size: 10px;
+}
+
+.text-info {
+  margin-bottom: 08rem;
+}
+
+.t-handle-input {
+  padding: 18px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin-top: 04rem;
+  font-size: 15px;
+}
+
+.submit-btn {
+  background: #FFDE39;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+}
+
+.main .notice-badge {
+  font-size: 18px;
+  background: lightblue;
+  padding: 10px;
+  border-radius: 5px;
+}
