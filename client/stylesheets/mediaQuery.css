@@ -28,6 +28,10 @@
   .img-container {
     height: 107px;
   }
+
+  .discontinued-message {
+    height: 280px !important;
+  }
 }
 
 @media all and (max-width: 420px) {

@@ -1,0 +1,21 @@
+.discontinued-message {
+    width: 80%;
+    height: 400px;
+    position: fixed;
+    margin: 0 auto;
+    top: calc(50% - 200px);
+    border: 1px solid black;
+    border-radius: 8px;
+    background: aliceblue;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    padding: 30px;
+}
+
+.discontinued-message p {
+    font-size: 3rem !important;
+    line-height: 1.2 !important;
+}
+
+.discontinued-message .label {
+    color: red;
+}
