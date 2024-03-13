@@ -13,6 +13,7 @@ function fetchProfile(event) {
       console.log(data);
       showProfile(data);
     } else {
+      console.log(data, "data++");
       alert("Please provide valid twitter handle.");
     }
   })
